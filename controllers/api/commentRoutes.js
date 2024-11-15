@@ -13,9 +13,9 @@ router.get('/', (req, res) => {
     })
 });
 
-// GET request for comment_id
+// GET request for comment by id
 router.get('/:id', (req, res) => {
-  Comment.findAll({
+  Comment.findOne({
     where: {
       id: req.params.id
     }
@@ -44,7 +44,7 @@ router.post('/', withAuth, (req, res) => {
   }
 });
 
-// PUT request for comment_id
+// PUT request for comment by id
 router.put('/:id', withAuth, (req, res) => {
   Comment.update({
     comment_body: req.body.comment_body
@@ -64,7 +64,7 @@ router.put('/:id', withAuth, (req, res) => {
   });
 });
   
-  // DELETE request for comment_id
+  // DELETE request for comment by id
   router.delete('/:id', withAuth, (req, res) => {
     Comment.destroy({
       where: {
@@ -81,5 +81,5 @@ router.put('/:id', withAuth, (req, res) => {
       res.status(500).json(err);
     });
   });
-  
+
   module.exports = router;
