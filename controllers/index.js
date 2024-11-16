@@ -3,8 +3,8 @@ const router = require('express').Router();
 // Import the index.js from 'api' folder
 const apiRoutes = require('./api');
 // Import the home and dashboard routes from the 'api' folder
-const homeRoutes = require('./home-routes.js');
-const dashboardRoutes = require('./dashboard-routes.js');
+const homeRoutes = require('./homeRoutes.js');
+const dashboardRoutes = require('./dashboardRoutes.js');
 
 // When a request is made to the /api route, it will be directed to the index.js in the 'api' folder.
 router.use('/api', apiRoutes);
