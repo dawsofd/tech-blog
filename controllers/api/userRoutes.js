@@ -59,7 +59,7 @@ router.post('/', (req, res) => {
   .then(userData => {
     req.session.save(() => {
       req.session.user_id = userData.id;
-      req.session.username = userdata.username;
+      req.session.username = userData.username;
       req.session.loggedIn = true;
 
       res.json(userData);
@@ -72,7 +72,7 @@ router.post('/', (req, res) => {
 });
 
 // POST route for user log in
-router.post('/login', (req, res) => {
+router.post('/login', async (req, res) => {
   User.findOne({
           where: {
               username: req.body.username
