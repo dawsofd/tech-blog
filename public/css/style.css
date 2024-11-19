@@ -91,7 +91,7 @@ logo:hover {
     color: #0e506e;
   }
   
-  .post-content{
+  .post-body{
     padding: 10px !important;
     text-align: left !important;
   }
@@ -168,7 +168,7 @@ logo:hover {
     margin-top: 20px;
   }
   
-  .comment-text{
+  .comment-body{
     padding: 10px;
   }
   
