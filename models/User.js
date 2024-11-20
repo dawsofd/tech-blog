@@ -17,7 +17,7 @@ User.init(
       primaryKey: true,
       autoIncrement: true,
     },
-   username: {
+    username: {
       type: DataTypes.STRING,
       allowNull: false,
     },
@@ -34,8 +34,8 @@ User.init(
       allowNull: false,
       validate: {
         len: [8],
-      }
-    }
+      },
+    },
   },
   {
     // Hooks are used so that if a user is created or updated, the password is encrypted before being stored in the database.
@@ -50,6 +50,7 @@ User.init(
       },
     },
     sequelize,
+    timestamps: false,
     freezeTableName: true,
     underscored: true,
     modelName: 'user',
