@@ -43,14 +43,14 @@ router.get('/', withAuth, (req,res) => {
 router.get('/edit/:id', withAuth, (req, res) => {
     Post.findOne({
         where: { id: req.params.id },
-        attributes: ['id', 'title', 'content', 'created_at'],
+        attributes: ['id', 'title', 'post_body', 'created_at'],
         include: [{ 
                 model: User, 
                 attributes: ['username']
             },
             {
                 model: Comment,
-                attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+                attributes: ['id', 'comment_body', 'post_id', 'user_id', 'created_at'],
                 include: {
                     model: User,
                     attributes: ['username']
