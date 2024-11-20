@@ -51,12 +51,14 @@ router.get('/:id', (req, res) => {
 
 // POST request for new user
 router.post('/', (req, res) => {
+  console.log('Creating New User...');
   User.create({
     username: req.body.username,
     email: req.body.email,
     password: req.body.password
   })
   .then(userData => {
+    console.log(userData);
     req.session.save(() => {
       req.session.user_id = userData.id;
       req.session.username = userData.username;
@@ -74,21 +76,21 @@ router.post('/', (req, res) => {
 // POST route for user log in
 router.post('/login', async (req, res) => {
   try {
-    const userData = await User.findOne({ where: { email: req.body.username } });
-
+    const userData = await User.findOne({ where: { username: req.body.username } });
+    console.log(userData);
     if (!userData) {
       res
         .status(400)
-        .json({ message: 'Incorrect email or password, please try again' });
+        .json({ message: 'Incorrect username or password, please try again' });
       return;
     }
 
     const validPassword = await userData.checkPassword(req.body.password);
-
+    console.log(validPassword);
     if (!validPassword) {
       res
         .status(400)
-        .json({ message: 'Incorrect email or password, please try again' });
+        .json({ message: 'Incorrect username or password, please try again' });
       return;
     }
 
@@ -100,6 +102,7 @@ router.post('/login', async (req, res) => {
     });
 
   } catch (err) {
+    console.log(err);
     res.status(400).json(err);
   }
 });
