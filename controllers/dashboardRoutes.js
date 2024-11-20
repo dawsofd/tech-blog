@@ -30,7 +30,7 @@ router.get('/', withAuth, (req,res) => {
             return;
         }
         
-        const posts = postData.map(post => post.get({ plain: true });
+        const posts = postData.map(post => post.get({ plain: true }));
         res.render('dashboard', { posts, loggedIn: true });
     })
     .catch(err => {
