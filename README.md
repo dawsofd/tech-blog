@@ -54,4 +54,4 @@ The following animation demonstrates the application functionality:
 ![Animation cycles through signing into the app, clicking on buttons, and updating blog posts.](./Assets/14-mvc-homework-demo-01.gif)
 
 ## Link to Deployed Application
-![Link to deployed application](https://tech-blog-6yc8.onrender.com)
+https://tech-blog-6yc8.onrender.com
